@@ -1,0 +1,1 @@
+{"required":true,"package":"truefulys.optimizer.mixin","compatibilityLevel":"JAVA_8","client":["ClientPlayerEntityMixin","EndCrystalItemMixin","ItemStackMixin","MinecraftClientMixin"],"injectors":{"defaultRequire":1}}
