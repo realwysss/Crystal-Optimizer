@@ -1,33 +1,34 @@
 <p align="center"><img src="icon.png" width="128"></p>
 
-# Truefuly's Crystal Optimizer
+# Crystal Optimizer
 
-The fastest current End Crystal optimizer for Fabric.
+faster end crystal pvp on the client. vanilla mechanics stay the same, the client just stops waiting for the server.
 
-Smoother, faster End Crystal PvP — clean and responsive combat without changing vanilla mechanics or costing FPS.
+client side fabric mod. minecraft 1.21.11, 26.1 and 26.2.
 
-Features:
-- Optimized crystal placement & breaking
-- Ping-aware packet limiter for stable hits
-- Lightweight — no bloat, no FPS cost
-- In-game toggle: /truefulysoptimizer enable | disable
-- Built-in server-side opt-out
+- **fast placing**: hold use with a crystal in your hand and it places every tick on the obsidian or bedrock you look at
+- **fast breaking**: on high ping a crystal you hit is removed on your screen right away so the next one can be placed
+- **no bounce**: the hotbar item does not jump when the server gives crystals back, and the crystal count only changes when the server says so
+- **toggle**: `/crystalopt on` and `/crystalopt off`
+- **server opt-out**: servers can switch it off for everyone (see below)
 
-Server owners: edit config/truefulys_optimizer_server.json
-Compatibility: Minecraft 1.21.1 - 1.21.11
+servers that run this mod can set `allow` to `true` in `config/crystalopt_server.json`. the default is `false`, which tells every client to switch the optimizer off.
 
-author: Truefuly
-license: MIT (copyright Truefuly, see LICENSE)
+## credits
 
-## downloads
+the idea for this mod comes from Truefuly, who made the first version of it. this version is a new rewrite by wysss.
+
+## download
 
 | jar | minecraft |
 |---|---|
-| `truefulysoptimizer-1.2.3.jar` | >=1.21.1- <1.22- |
-| `truefulysoptimizer-1.2.4.jar` | >=26.0 <27 |
+| `crystal-optimizer-mc1.21.11-2.0.0.jar` | 1.21.11 |
+| `crystal-optimizer-mc26.1-26.2-2.0.0.jar` | 26.1 to 26.2 |
 
-the jars are on the releases page.
+on the releases page. fabric loader 0.16 or newer and fabric api.
 
-## source
+## how it works
 
-the folders in this repo have the code (`src`) and the resources (`res`) of the release jars.
+a tick hook on the player does the placing and the early removal, the normal use click is skipped while you hold a crystal, and small mixins on the crystal item and the item count stop the predicted count change and the pop animation. the server switch is a tiny packet that the server sends when you join.
+
+all rights reserved. made by wysss.

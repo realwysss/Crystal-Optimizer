@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "crystalopt",
+	"version": "${version}",
+	"name": "Crystal Optimizer",
+	"description": "faster end crystal pvp on the client: crystals place every tick while you hold use, hit crystals disappear right away on high ping, no hotbar bounce. servers can switch it off.",
+	"authors": ["wysss"],
+	"contributors": ["Truefuly (original idea)"],
+	"contact": {"sources": "https://github.com/realwysss/Crystal-Optimizer"},
+	"license": "All-Rights-Reserved",
+	"icon": "assets/crystalopt/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": ["dev.cropt.CoMain"],
+		"client": ["dev.cropt.CoClient"],
+		"server": ["dev.cropt.CoServer"]
+	},
+	"mixins": [
+		{
+			"config": "crystalopt.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"fabric-api": "*",
+		"minecraft": ">=1.21.11 <1.22",
+		"java": ">=21"
+	}
+}
